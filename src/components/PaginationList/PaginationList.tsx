@@ -1,5 +1,5 @@
 import React from 'react';
-import { Hidden, TablePagination } from '@mui/material';
+import { Box, TablePagination } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 import Pagination from '../Pagination/Pagination';
@@ -41,7 +41,7 @@ const PaginationList = ({
 
   return (
     <>
-      <Hidden smUp>
+      <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
         <TablePagination
           sx={{
             display: 'flex',
@@ -63,8 +63,8 @@ const PaginationList = ({
           onRowsPerPageChange={onRowsPerPageChange}
           ActionsComponent={Pagination}
         />
-      </Hidden>
-      <Hidden smDown initialWidth={'lg'}>
+      </Box>
+      <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
         <TablePagination
           rowsPerPageOptions={[
             5,
@@ -88,7 +88,7 @@ const PaginationList = ({
           ActionsComponent={Pagination}
           labelRowsPerPage={t('rowsPerPage')}
         />
-      </Hidden>
+      </Box>
     </>
   );
 };
